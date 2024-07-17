@@ -9,12 +9,17 @@ class Console(Cmd):
         this console serves as a means of interaction to this project
         commands used in this console are:
     """
-    prompt = 'hbnb $ '
+    prompt = '(hbnb) '
 
-    def do_greet(self, line):
-        print('hello {}'.format(line))
+    def do_quit(self, line):
+        """ Syntax to Quit Interpreter
+            usage:
+                quit
+        """
+        return True
 
     def do_EOF(self, line):
+        """ A shortcut for exiting the Interpreter """
         return True
 
 

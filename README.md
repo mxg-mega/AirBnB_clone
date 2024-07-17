@@ -4,9 +4,13 @@ The AirBnB project is a project serves as a real world training on how developme
 
 ## Usages:
 To Start the interpreter use the Interpreter run:
-''' ./console.py '''
+''' 
+./console.py
+'''
 
 To exit the console, enter the EOF (^D) command or use:
-''' quit '''
+'''
+quit 
+'''
 
 To create an object use 'create [class type]'

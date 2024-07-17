@@ -1,13 +1,10 @@
 #!/usr/bin/env python3
 import sys
- 
+from models.base_model import BaseModel
 # directory reach
-directory = '../..' 
-
+directory = '../..'
 # setting path
 sys.path.append(directory)
- 
-from models.base_model import BaseModel
 """ FileStorage Class """
 
 

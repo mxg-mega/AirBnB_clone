@@ -30,5 +30,5 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        dict_repr = {'id': self.id, 'created at': self.created_at, 'updated at': self.updated_at}
+        dict_repr = self.__dict__
         return dict_repr

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 import unittest
-from models.base_model import BaseModel
-""" TestBaseModel Class """
+from models.state import State
+""" TestState Class """
 
 
-class TestBaseModel(unittest.TestCase):
+class TestState(unittest.TestCase):
     """ Test for the BaseModel Class """
     pass
 

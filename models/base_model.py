@@ -27,9 +27,22 @@ class BaseModel:
         BaseModel.nb_instances += 1
 
     def save(self):
+        """ The save func updates the datetime
+            value of the instance variable updated_at
+        """
         self.updated_at = datetime.now()
 
     def to_dict(self):
+        """ to_dict returns a dict representation
+            of an instance.
+        """
         dict_repr = {'class': self.__class__.__name__}
         dict_repr.update(self.__dict__)
         return dict_repr
+
+    def __str__(self):
+        """ overrided str repr of an object in this format
+            [<class name>] (<self.id>) <self.__dict__>
+        """
+        print("[{}] ({}) {}".format(__class__.__name__,
+                                    self.id, self.__dict__))

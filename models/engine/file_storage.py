@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from modeles.engine.base_model import BaseModel
+from models.engine.base_model import BaseModel
 """ FileStorage Class """
 
 

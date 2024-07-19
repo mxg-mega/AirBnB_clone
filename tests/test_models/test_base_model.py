@@ -8,13 +8,13 @@ class TestBaseModel(unittest.TestCase):
     """ Test for the BaseModel Class """
 
     def setUp(self):
-        a = BaseModel()
+        self.a = BaseModel()
 
     def test_classname(self):
-        self.assertEqual(a.to_dict()['class'], 'BaseModel')
+        self.assertEqual(self.a.to_dict()['class'], 'BaseModel')
 
     def test_id(self):
-        self.assertNotNone
+        self.assertIsNotNone(self.a.id)
 
 if __name__ == "__main__":
     unittest.main()

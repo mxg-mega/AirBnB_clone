@@ -6,7 +6,9 @@ from models.amenity import Amenity
 
 class TestAmenity(unittest.TestCase):
     """ Test for the Amenity Class """
-    pass
+    def test_classname(self):
+        a = Amenity()
+        self.assertEqual(a.to_dict()['class'], 'Amenity')
 
 if __name__ == "__main__":
     unittest.main()

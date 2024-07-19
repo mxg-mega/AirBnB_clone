@@ -6,7 +6,10 @@ from models.place import Place
 
 class TestPlace(unittest.TestCase):
     """ Test for the Place Class """
-    pass
+
+    def test_classname(self):
+        a = Place()
+        self.assertEqual(a.to_dict()['class'], 'Place')
 
 if __name__ == "__main__":
     unittest.main()

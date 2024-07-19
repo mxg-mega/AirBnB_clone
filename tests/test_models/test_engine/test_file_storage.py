@@ -6,7 +6,10 @@ from models.engine.file_storage import FileStorage
 
 class TestFileStorage(unittest.TestCase):
     """ Tests for the FileStorage class """
-    pass
+
+    def test_classname(self):
+        a = FileStorage()
+        self.assertEqual(a.to_dict()['class'], 'FileStorage')
 
 
 if __name__ == '__main__':

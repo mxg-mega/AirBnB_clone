@@ -6,7 +6,10 @@ from models.review import Review
 
 class TestReview(unittest.TestCase):
     """ Test for the Review Class """
-    pass
+
+    def test_classname(self):
+        a = Review()
+        self.assertEqual(a.to_dict()['class'], 'Review')
 
 if __name__ == "__main__":
     unittest.main()

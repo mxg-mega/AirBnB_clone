@@ -21,8 +21,8 @@ class BaseModel:
                 created_at: using datetime module to set the date created
                 updated_at: sets the time the instance was last updated
         """
-        self.id = str(uuid.uuid1())
-        self.created_at = datetime.now()
+        self.id = str(uuid.uuid4())
+        self.created_at = str(datetime.now())
         self.updated_at = self.created_at
         BaseModel.nb_instances += 1
 
@@ -30,5 +30,6 @@ class BaseModel:
         self.updated_at = datetime.now()
 
     def to_dict(self):
-        dict_repr = self.__dict__
+        dict_repr = {'class': self.__class__.__name__}
+        dict_repr.update(self.__dict__)
         return dict_repr

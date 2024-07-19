@@ -6,9 +6,11 @@ from models.user import User
 
 class TestUser(unittest.TestCase):
     """ Test for the User Class """
+    def setUp(self):
+        self.a = User()
+
     def test_classname(self):
-        a = User()
-        self.assertEqual(a.to_dict()['class'], 'User')
+        self.assertEqual(self.a.to_dict()['__class__'], 'User')
 
 
 if __name__ == "__main__":

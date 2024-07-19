@@ -6,9 +6,12 @@ from models.amenity import Amenity
 
 class TestAmenity(unittest.TestCase):
     """ Test for the Amenity Class """
+    def setUp(self):
+        self.a = Amenity()
+
     def test_classname(self):
-        a = Amenity()
-        self.assertEqual(a.to_dict()['class'], 'Amenity')
+        self.assertEqual(self.a.to_dict()['__class__'], 'Amenity')
+
 
 if __name__ == "__main__":
     unittest.main()

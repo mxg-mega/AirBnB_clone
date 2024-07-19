@@ -7,9 +7,11 @@ from models.state import State
 class TestState(unittest.TestCase):
     """ Test for the BaseModel Class """
 
+    def setUp(self):
+        self.a = State()
+
     def test_classname(self):
-        a = State()
-        self.assertEqual(a.to_dict()['class'], 'State')
+        self.assertEqual(self.a.to_dict()['__class__'], 'State')
 
 if __name__ == "__main__":
     unittest.main()

@@ -11,10 +11,15 @@ class TestBaseModel(unittest.TestCase):
         self.a = BaseModel()
 
     def test_classname(self):
-        self.assertEqual(self.a.to_dict()['class'], 'BaseModel')
+        self.assertEqual(self.a.to_dict()['__class__'], 'BaseModel')
 
     def test_id(self):
         self.assertIsNotNone(self.a.id)
+
+    def test_save(self):
+        prev = self.a.updated_at
+        self.a.save()
+        self.assertNotEqual(prev, self.a.updated_at)
 
 if __name__ == "__main__":
     unittest.main()

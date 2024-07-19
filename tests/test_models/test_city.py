@@ -7,6 +7,12 @@ from models.city import City
 class TestCity(unittest.TestCase):
     """ Tests for City class """
 
+    def setUp(self):
+        self.a = City()
+
     def test_classname(self):
-        a = City()
-        self.assertEqual(a.to_dict()['class'], 'City')
+        self.assertEqual(self.a.to_dict()['__class__'], 'City')
+
+
+if __name__ == '__main__':
+    unittest.main()

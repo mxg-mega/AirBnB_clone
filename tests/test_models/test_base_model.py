@@ -6,9 +6,15 @@ from models.base_model import BaseModel
 
 class TestBaseModel(unittest.TestCase):
     """ Test for the BaseModel Class """
-    def test_classname(self):
+
+    def setUp(self):
         a = BaseModel()
+
+    def test_classname(self):
         self.assertEqual(a.to_dict()['class'], 'BaseModel')
+
+    def test_id(self):
+        self.assertNotNone
 
 if __name__ == "__main__":
     unittest.main()

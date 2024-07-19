@@ -6,7 +6,10 @@ from models.state import State
 
 class TestState(unittest.TestCase):
     """ Test for the BaseModel Class """
-    pass
+
+    def test_classname(self):
+        a = State()
+        self.assertEqual(a.to_dict()['class'], 'State')
 
 if __name__ == "__main__":
     unittest.main()

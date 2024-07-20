@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import json
 import uuid
 from datetime import datetime
 """ The Base Model Class """
@@ -14,7 +13,7 @@ class BaseModel:
 
     nb_instances = 0
 
-    def __init__(self, id=0):
+    def __init__(self):
         """ __init__ iniatilizes the class
             Instance Variables:
                 id: unique id using the uuid1
@@ -36,8 +35,8 @@ class BaseModel:
         """ to_dict returns a dict representation
             of an instance.
         """
-        dict_repr = {'__class__': self.__class__.__name__}
-        dict_repr.update(self.__dict__)
+        dict_repr = self.__dict__
+        dict_repr['__class__'] = self.__class__.__name__
         return dict_repr
 
     def __str__(self):
@@ -45,4 +44,4 @@ class BaseModel:
             [<class name>] (<self.id>) <self.__dict__>
         """
         return "[{}] ({}) {}".format(__class__.__name__,
-                                    self.id, self.__dict__)
+                                     self.id, self.__dict__)

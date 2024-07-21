@@ -45,7 +45,6 @@ class BaseModel:
         """ overrided str repr of an object in this format
             [<class name>] (<self.id>) <self.__dict__>
         """
-        str_repr = "[{}] ({}) {}".format(__class__.__name__,
+        str_repr = "[{}] ({}) {}".format(self.__class__.__name__,
                                          self.id, self.__dict__)
-        print(str_repr)
         return str_repr

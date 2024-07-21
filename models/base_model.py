@@ -47,5 +47,4 @@ class BaseModel:
         """
         str_repr = "[{}] ({}) {}".format(__class__.__name__,
                                          self.id, self.__dict__)
-        print(str_repr)
         return str_repr

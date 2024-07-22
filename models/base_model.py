@@ -10,20 +10,25 @@ class BaseModel:
         this base class imports json, uuid and datetime
         to make unique id
     """
+    time_format = '%Y-%m-%dT%H:%M:%S.%f'
 
-    nb_instances = 0
-
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
         """ __init__ iniatilizes the class
             Instance Variables:
                 id: unique id using the uuid1
                 created_at: using datetime module to set the date created
                 updated_at: sets the time the instance was last updated
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.now()
-        self.updated_at = self.created_at
-        BaseModel.nb_instances += 1
+        if not kwargs:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.now()
+            self.updated_at = self.created_at
+        else:
+            self.id = kwargs['id']
+            self.created_at = datetime.strptime(kwargs['created_at'],
+                                                BaseModel().time_format)
+            self.updated_at = datetime.strptime(kwargs['updated_at'],
+                                                BaseModel().time_format)
 
     def save(self):
         """ The save func updates the datetime
@@ -37,8 +42,8 @@ class BaseModel:
         """
         dict_repr = {'__class__': self.__class__.__name__}
         dict_repr.update(self.__dict__)
-        dict_repr['created_at'] = str(self.created_at)
-        dict_repr['updated_at'] = str(self.updated_at)
+        dict_repr['created_at'] = self.created_at.isoformat()
+        dict_repr['updated_at'] = self.updated_at.isoformat()
         return dict_repr
 
     def __str__(self):
@@ -46,8 +51,6 @@ class BaseModel:
             [<class name>] (<self.id>) <self.__dict__>
         """
         dict_rep = self.__dict__
-        dict_rep['created_at'] = str(self.created_at)
-        dict_rep['updated_at'] = str(self.updated_at)
         cls = (str(type(self)).split('.')[-1]).split('\'')[0]
         str_rep = "[{}] ({}) {}".format(cls,
                                         self.id, dict_rep)

@@ -48,5 +48,7 @@ class BaseModel:
         dict_rep = self.__dict__
         dict_rep['created_at'] = str(self.created_at)
         dict_rep['updated_at'] = str(self.updated_at)
-        return "[{}] ({}) {}".format(self.__class__.__name__,
-                                     self.id, dict_rep)
+        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
+        str_rep = "[{}] ({}) {}".format(cls,
+                                        self.id, dict_rep)
+        return str_rep

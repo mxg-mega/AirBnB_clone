@@ -13,3 +13,8 @@ class BaseModel(BaseModel):
         """Doc
         """
         return "Fake"
+
+
+if __name__ == '__main__':
+    b = BaseModel()
+    print(b)

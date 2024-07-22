@@ -21,5 +21,9 @@ class TestBaseModel(unittest.TestCase):
         self.a.save()
         self.assertNotEqual(prev, self.a.updated_at)
 
+    def test_str(self):
+        self.assertEqual(self.a.__str__(), "[{}] ({}) {}".format(self.a.to_dict()['__class__'],
+                         self.a.id, self.a.__dict__))
+
 if __name__ == "__main__":
     unittest.main()

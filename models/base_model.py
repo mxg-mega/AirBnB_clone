@@ -47,11 +47,11 @@ class BaseModel:
         return dict_repr
 
     def __str__(self):
-        """ overrided str repr of an object in this format
+        """ returns a string repr in this format:
             [<class name>] (<self.id>) <self.__dict__>
         """
         dict_rep = self.__dict__
-        cls = (str(type(self)).split('.')[-1]).split('\'')[0]
-        str_rep = "[{}] ({}) {}".format(cls,
+        cls = self.__class__.__name__
+        str_rep = "[{:s}] ({:s}) {}".format(cls,
                                         self.id, dict_rep)
         return str_rep

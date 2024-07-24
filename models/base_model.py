@@ -56,7 +56,7 @@ class BaseModel:
         dict_repr = {'__class__' : self.__class__.__name__}
         dict_repr.update(self.__dict__)
         dict_repr.update({'created_at': self.created_at.isoformat()})
-        dict_repr.update({'updated_at': self.updated_at.isoformat()})
+        dict_repr.update({'updated_at': str(self.updated_at.isoformat())})
         return dict_repr
 
     def __str__(self):

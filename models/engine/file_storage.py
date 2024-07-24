@@ -52,4 +52,4 @@ class FileStorage(BaseModel):
                     deserial_obj[key] = BaseModel(**value)
                 self.__objects = deserial_obj
         except:
-            print()
+            pass

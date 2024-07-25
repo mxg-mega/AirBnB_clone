@@ -40,7 +40,7 @@ class BaseModel:
         """ The save func updates the datetime
             value of the instance variable updated_at
         """
-        self.updated_at = datetime.now()
+        self.updated_at = str(datetime.now())
         from models import storage
         storage.save()
 

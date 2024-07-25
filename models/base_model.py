@@ -36,11 +36,6 @@ class BaseModel:
             from models import storage
             storage.new(self)
 
-    @classmethod
-    def retrieve(cls, obj_dict):
-        """ this class method remakes the class method """
-        return cls(obj_dict)
-
     def save(self):
         """ The save func updates the datetime
             value of the instance variable updated_at

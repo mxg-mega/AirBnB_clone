@@ -70,5 +70,13 @@
         "updated_at": "2024-07-26T12:46:23.668146",
         "name": "My_First_Model",
         "my_number": 89
+    },
+    "BaseModel.646862d7-f027-429a-aecc-ac81f855b6c8": {
+        "__class__": "BaseModel",
+        "id": "646862d7-f027-429a-aecc-ac81f855b6c8",
+        "created_at": "2024-07-26T12:57:23.122526",
+        "updated_at": "2024-07-26T12:57:23.122713",
+        "name": "My_First_Model",
+        "my_number": 89
     }
 }

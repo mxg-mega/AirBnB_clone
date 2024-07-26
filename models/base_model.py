@@ -40,10 +40,9 @@ class BaseModel:
         """ The save func updates the datetime
             value of the instance variable updated_at
         """
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         from models import storage
         storage.save()
-        storage.new(self)
 
     def to_dict(self):
         """ to_dict returns a dict representation

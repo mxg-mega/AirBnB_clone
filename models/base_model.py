@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import uuid
-from datetime import datetime
 import models
+from datetime import datetime
 """ The Base Model Class """
 
 
@@ -51,8 +51,7 @@ class BaseModel:
         """ The save func updates the datetime
             value of the instance variable updated_at
         """
-        self.updated_at = datetime.utcnow()
-        models.storage.new(self)
+        self.updated_at = datetime.now()
         models.storage.save()
 
     def to_dict(self):
@@ -62,7 +61,7 @@ class BaseModel:
         dict_repr = {'__class__' : self.__class__.__name__}
         dict_repr.update(self.__dict__)
         dict_repr.update({'created_at': self.created_at.isoformat()})
-        dict_repr.update({'updated_at': str(self.updated_at.isoformat())})
+        dict_repr.update({'updated_at': self.updated_at.isoformat()})
         return dict_repr
 
     def __str__(self):

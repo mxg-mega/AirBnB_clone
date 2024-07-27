@@ -12,8 +12,6 @@ class BaseModel:
         to make unique id
     """
 
-    time_format = '%Y-%m-%dT%H:%M:%S.%f'
-
     def __init__(self, *args, **kwargs):
         """ __init__ iniatilizes the class
             Instance Variables:
@@ -21,6 +19,7 @@ class BaseModel:
                 created_at: using datetime module to set the date created
                 updated_at: sets the time the instance was last updated
         """
+        date_time_format = '%Y-%m-%dT%H:%M:%S.%f'
         if kwargs:
             for key, value in kwargs.items():
                 if key != '__class__':
@@ -32,13 +31,13 @@ class BaseModel:
 
             if kwargs.get("created_at", None) and type(self.created_at) is str:
                 self.created_at = datetime.strptime(kwargs["created_at"],
-                                                    BaseModel().time_format)
+                                                    date_time_format)
             else:
                 self.created_at = datetime.now()
 
             if kwargs.get("updated_at", None) and type(self.updated_at) is str:
                 self.updated_at = datetime.strptime(kwargs["updated_at"],
-                                                    BaseModel().time_format)
+                                                    date_time_format)
             else:
                 self.updated_at = datetime.now()
         else:
@@ -59,7 +58,7 @@ class BaseModel:
             of an instance.
         """
         dict_repr = {'__class__' : self.__class__.__name__}
-        dict_repr.update(self.__dict__)
+        dict_repr.update(self.__dict__.copy())
         dict_repr.update({'created_at': self.created_at.isoformat()})
         dict_repr.update({'updated_at': self.updated_at.isoformat()})
         return dict_repr

@@ -52,8 +52,8 @@ class BaseModel:
             value of the instance variable updated_at
         """
         self.updated_at = datetime.now()
-        saving = models.storage
-        saving.save()
+        models.storage.save()
+        print("saved .........")
 
     def to_dict(self):
         """ to_dict returns a dict representation

@@ -53,7 +53,6 @@ class BaseModel:
         """
         self.updated_at = datetime.now()
         models.storage.save()
-        print("saved .........")
 
     def to_dict(self):
         """ to_dict returns a dict representation

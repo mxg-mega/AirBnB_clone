@@ -34,16 +34,16 @@ class BaseModel:
                 self.created_at = datetime.strptime(kwargs["created_at"],
                                                     BaseModel().time_format)
             else:
-                self.created_at = datetime.now()
+                self.created_at = datetime.utcnow()
 
             if kwargs.get("updated_at", None) and type(self.updated_at) is str:
                 self.updated_at = datetime.strptime(kwargs["updated_at"],
                                                     BaseModel().time_format)
             else:
-                self.updated_at = datetime.now()
+                self.updated_at = datetime.utcnow()
         else:
             self.id = str(uuid.uuid4())
-            self.created_at = datetime.now()
+            self.created_at = datetime.utcnow()
             self.updated_at = self.created_at
             models.storage.new(self)
 
@@ -51,7 +51,7 @@ class BaseModel:
         """ The save func updates the datetime
             value of the instance variable updated_at
         """
-        self.updated_at = datetime.now()
+        self.updated_at = datetime.utcnow()
         models.storage.save()
 
     def to_dict(self):

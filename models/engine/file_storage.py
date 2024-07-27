@@ -31,7 +31,7 @@ class FileStorage:
             key <obj class name>.id
         """
         format_key = '{}.{}'.format(obj.__class__.__name__, obj.id)
-        FileStorage.__objects.update({format_key: obj})
+        FileStorage.__objects[format_key] = obj
 
     def save(self):
         """ serializes __objects to the JSON file

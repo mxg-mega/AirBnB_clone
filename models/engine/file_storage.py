@@ -1,6 +1,16 @@
 #!/usr/bin/python3
-from models.base_model import BaseModel
 import json
+from models.amenity import Amenity
+from models.base_model import BaseModel
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.state import State
+from models.user import User
+
+classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
+           "Place": Place, "Review": Review, "State": State, "User": User}
+
 """ FileStorage Class """
 
 
@@ -42,7 +52,7 @@ class FileStorage:
                 contents = jfile.read()
                 deserial = json.loads(contents)
                 for key, value in deserial.items():
-                    deserial_obj[key] = BaseModel(**value)
+                    deserial_obj[key] = classes[value['__class__']](**value)
                 FileStorage.__objects = deserial_obj
         except FileNotFoundError:
             pass

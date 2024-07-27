@@ -46,12 +46,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             models.storage.new(self)
 
-    def save(self):
-        """ The save func updates the datetime
-            value of the instance variable updated_at
-        """
-        self.updated_at = datetime.now()
-        models.storage.save()
 
     def to_dict(self):
         """ to_dict returns a dict representation
@@ -63,7 +57,7 @@ class BaseModel:
         dict_repr.update({'updated_at': self.updated_at.isoformat()})
         return dict_repr
 
-    def __str__(self):
+    def __str__(self) -> str:
         """ returns a string repr in this format:
             [<class name>] (<self.id>) <self.__dict__>
         """
@@ -71,3 +65,10 @@ class BaseModel:
         cls = self.__class__.__name__
         str_rep = "[{:s}] ({:s}) {}".format(cls, self.id, dict_rep)
         return str_rep
+
+    def save(self):
+        """ The save func updates the datetime
+            value of the instance variable updated_at
+        """
+        self.updated_at = datetime.now()
+        models.storage.save()

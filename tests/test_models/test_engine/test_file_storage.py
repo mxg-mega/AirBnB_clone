@@ -14,5 +14,6 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(self.a.to_dict()['__class__'], 'FileStorage')
 
 
+
 if __name__ == '__main__':
     unittest.main()

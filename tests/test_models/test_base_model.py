@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 import unittest
-from models.base_model import BaseModel
+from models.base_model import BaseMode
+import datetime
+from uuid import UUID
+import json
+import os
+
 """ TestBaseModel Class """
 
 
@@ -17,13 +22,18 @@ class TestBaseModel(unittest.TestCase):
         self.assertIsNotNone(self.a.id)
 
     def test_save(self):
-        prev = self.a.updated_at
+         """ Testing save """
         self.a.save()
-        self.assertNotEqual(prev, self.a.updated_at)
+        key = self.a.to_dict["__class__"] + "." + self.a.id
+        with open('file.json', 'r') as f:
+            j = json.load(f)
+            self.assertEqual(j[key], self.a.to_dict())
 
     def test_str(self):
         self.assertEqual(self.a.__str__(), "[{}] ({}) {}".format(self.a.to_dict()['__class__'],
                          self.a.id, self.a.__dict__))
+
+
 
 if __name__ == "__main__":
     unittest.main()

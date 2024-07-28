@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 import uuid
-import models
 from datetime import datetime
 """ The Base Model Class """
 
@@ -44,8 +43,26 @@ class BaseModel:
             self.id = str(uuid.uuid4())
             self.created_at = datetime.now()
             self.updated_at = datetime.now()
-            models.storage.new(self)
+            from models import storage
+            storage.new(self)
 
+
+    def __str__(self):
+        """ returns a string repr in this format:
+            [<class name>] (<self.id>) <self.__dict__>
+        """
+        dict_rep = self.__dict__
+        cls = self.__class__.__name__
+        str_rep = "[{:s}] ({:s}) {}".format(cls, self.id, dict_rep)
+        return str_rep
+
+    def save(self):
+        """ The save func updates the datetime
+            value of the instance variable updated_at
+        """
+        self.updated_at = datetime.now()
+        from models import storage
+        storage.save()
 
     def to_dict(self):
         """ to_dict returns a dict representation
@@ -57,11 +74,3 @@ class BaseModel:
         dict_repr.update({'updated_at': self.updated_at.isoformat()})
         return dict_repr
 
-    def __str__(self) -> str:
-        """ returns a string repr in this format:
-            [<class name>] (<self.id>) <self.__dict__>
-        """
-        dict_rep = self.__dict__
-        cls = self.__class__.__name__
-        str_rep = "[{:s}] ({:s}) {}".format(cls, self.id, dict_rep)
-        return str_rep

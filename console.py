@@ -8,8 +8,6 @@ import cmd
 class HBNBCommand(cmd.Cmd):
     """ HBNBCommand inherits from the cmd class
         this console serves as a means of interaction to this project
-        commands used in this console are:
-
     """
     prompt = '(hbnb) '
 

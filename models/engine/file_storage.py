@@ -38,9 +38,9 @@ class FileStorage:
             (path: __file_path)
         """
         serial_obj = {}
+        for key, value in FileStorage.__objects.items():
+            serial_obj[key] = value.to_dict()
         with open(FileStorage.__file_path, 'w') as savefile:
-            for key, value in FileStorage.__objects.items():
-                serial_obj[key] = value.to_dict()
             serial = json.dumps(serial_obj, indent=4)
             savefile.write(serial)
 

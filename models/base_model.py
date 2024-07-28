@@ -65,10 +65,3 @@ class BaseModel:
         cls = self.__class__.__name__
         str_rep = "[{:s}] ({:s}) {}".format(cls, self.id, dict_rep)
         return str_rep
-
-    def save(self):
-        """ The save func updates the datetime
-            value of the instance variable updated_at
-        """
-        self.updated_at = datetime.now()
-        models.storage.save()

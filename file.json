@@ -186,5 +186,21 @@
         "updated_at": "2024-07-27T22:29:18.842433",
         "name": "My_First_Model",
         "my_number": 89
+    },
+    "BaseModel.510413fe-06a5-428d-a80f-0c28d3b5ff46": {
+        "__class__": "BaseModel",
+        "id": "510413fe-06a5-428d-a80f-0c28d3b5ff46",
+        "created_at": "2024-07-27T22:35:52.679142",
+        "updated_at": "2024-07-27T22:35:52.679209",
+        "name": "My_First_Model",
+        "my_number": 89
+    },
+    "BaseModel.495816e1-d6c1-43d1-8497-a7eb199373d3": {
+        "__class__": "BaseModel",
+        "id": "495816e1-d6c1-43d1-8497-a7eb199373d3",
+        "created_at": "2024-07-27T22:36:03.867814",
+        "updated_at": "2024-07-27T22:36:03.867892",
+        "name": "My_First_Model",
+        "my_number": 89
     }
 }

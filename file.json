@@ -377,5 +377,24 @@
         "id": "4655aa64-b7e9-4a8c-8295-2b7736a5ddd9",
         "created_at": "2024-07-29T14:14:29.609548",
         "updated_at": "2024-07-29T14:14:29.609675"
+    },
+    "User.0087bdb8-b922-43d7-8eb9-186add4e5ccc": {
+        "__class__": "User",
+        "id": "0087bdb8-b922-43d7-8eb9-186add4e5ccc",
+        "created_at": "2024-07-29T15:57:52.070793",
+        "updated_at": "2024-07-29T15:57:52.070891",
+        "first_name": "Betty",
+        "last_name": "Bar",
+        "email": "airbnb@mail.com",
+        "password": "root"
+    },
+    "User.38fd9d9f-9ba2-4fb4-8d49-dad28d735a7a": {
+        "__class__": "User",
+        "id": "38fd9d9f-9ba2-4fb4-8d49-dad28d735a7a",
+        "created_at": "2024-07-29T15:57:52.107954",
+        "updated_at": "2024-07-29T15:57:52.108025",
+        "first_name": "John",
+        "email": "airbnb2@mail.com",
+        "password": "root"
     }
 }

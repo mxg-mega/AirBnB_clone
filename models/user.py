@@ -7,3 +7,8 @@ class User(BaseModel):
     """ The User class describes
         the instances of Users, data and operations associated
     """
+    email = ''
+    password = ''
+    first_name = ''
+    last_name = ''
+

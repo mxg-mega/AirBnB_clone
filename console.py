@@ -78,7 +78,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** no instance found **")
             else:
                 del objs[key_format]
-                print("deleted {}".format(key_format))
                 models.storage.save()
 
     def do_all(self, classTypes=None):
@@ -142,5 +141,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    """ The Console """
     HBNBCommand().cmdloop()

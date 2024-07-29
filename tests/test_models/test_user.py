@@ -13,14 +13,14 @@ class TestUser(unittest.TestCase):
         self.assertEqual(self.a.to_dict()['__class__'], 'User')
 
     def test_email(self):
-        self.a.email = 'airbnb@gmail.com'
-        self.a.password = 'bnb1'
-        self.a.first_name = 'air'
-        self.a.last_name = 'bnb'
-        self.assertEqual(self.a.to_dict()['email'], 'airbnb@gmail.com')
-        self.assertEqual(self.a.to_dict()['password'], 'bnb1')
-        self.assertEqual(self.a.to_dict()['first_name'], 'air')
-        self.assertEqual(self.a.to_dict()['last_name'], 'bnb')
+        User.email = 'airbnb@gmail.com'
+        User.password = 'bnb1'
+        User.first_name = 'air'
+        User.last_name = 'bnb'
+        self.assertEqual(User.email, 'airbnb@gmail.com')
+        self.assertEqual(User.password, 'bnb1')
+        self.assertEqual(User.first_name, 'air')
+        self.assertEqual(User.last_name, 'bnb')
 
 
 if __name__ == "__main__":

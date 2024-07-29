@@ -11,14 +11,16 @@ class User(BaseModel):
     password = ''
     first_name = ''
     last_name = ''
+
     def __init__(self, *args, **kwargs):
         """ Initialize instance """
-        super().__init__(self, *args, **kwargs)
-        if 'email' in kwargs.keys() and kwargs:
-            User.email = kwargs['email']
-        if 'password' in kwargs.keys() and kwargs:
-            User.password = kwargs['password']
-        if 'first_name' in kwargs.keys() and kwargs:
-            User.first_name = kwargs['first_name']
-        if 'last_name' in kwargs.keys() and kwargs:
-            User.last_name = kwargs['last_name']
+        super().__init__(**kwargs)
+        if kwargs:
+            if 'email' in kwargs.keys():
+                User.email = kwargs['email']
+            if 'password' in kwargs.keys():
+                User.pasword = kwargs['password']
+            if 'first_name' in kwargs.keys():
+                User.first_name = kwargs['first_name']
+            if 'last_name' in kwargs.keys():
+                User.email = kwargs['last_name']

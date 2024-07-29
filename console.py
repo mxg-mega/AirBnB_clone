@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from models.engine.file_storage import classes
 import models
 import cmd
@@ -9,6 +9,7 @@ class HBNBCommand(cmd.Cmd):
     """ HBNBCommand inherits from the cmd class
         this console serves as a means of interaction to this project
     """
+
     prompt = '(hbnb) '
 
     def do_quit(self, line):

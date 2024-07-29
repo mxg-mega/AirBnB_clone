@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import unittest
-from models.base_model import BaseMode
+from models.base_model import BaseModel
 import datetime
 from uuid import UUID
 import json
@@ -23,11 +23,11 @@ class TestBaseModel(unittest.TestCase):
 
     def test_save(self):
          """ Testing save """
-        self.a.save()
-        key = self.a.to_dict["__class__"] + "." + self.a.id
-        with open('file.json', 'r') as f:
-            j = json.load(f)
-            self.assertEqual(j[key], self.a.to_dict())
+         self.a.save()
+         key = self.a.to_dict()["__class__"] + "." + self.a.to_dict()['id']
+         with open('file.json', 'r') as f:
+             j = json.load(f)
+             self.assertEqual(j[key], self.a.to_dict())
 
     def test_str(self):
         self.assertEqual(self.a.__str__(), "[{}] ({}) {}".format(self.a.to_dict()['__class__'],

@@ -20,6 +20,7 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def emptyline(self):
+        """ An Emptyline Does Nothing """
         pass
 
     def do_EOF(self, line):

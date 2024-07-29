@@ -7,11 +7,17 @@ from models.state import State
 class TestState(unittest.TestCase):
     """ Test for the BaseModel Class """
 
-    def setUp(self):
-        self.a = State()
+   def setUp(self):
+        """Set up test methods."""
+        self.state = State()
 
-    def test_classname(self):
-        self.assertEqual(self.a.to_dict()['__class__'], 'State')
+    def test_attributes_exist(self):
+        """Test if State has the correct attributes."""
+        self.assertTrue(hasattr(self.state, "name"))
+
+    def test_attributes_default_values(self):
+        """Test the default values of State attributes."""
+        self.assertEqual(self.state.name, "") 
 
 if __name__ == "__main__":
     unittest.main()

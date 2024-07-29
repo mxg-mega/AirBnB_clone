@@ -1,8 +1,5 @@
 #!/usr/bin/python3
 from models.base_model import BaseModel
-from models.user import User
-from models.amenity import Amenity
-from models.city import City
 
 """ Place Class """
 
@@ -11,7 +8,7 @@ class Place(BaseModel):
     """ The Place class describes
         the instances of places, data and operations associated
     """
-    city_is = ''
+    city_id = ''
     user_id = ''
     name = ''
     description = ''

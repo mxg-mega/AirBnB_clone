@@ -38,14 +38,15 @@ class HBNBCommand(cmd.Cmd):
             Usage:
                 create <class_name>
         """
-        if class_name is None or class_name == '':
+        if class_name is None or class_name == '' or ' ':
             print("** class name missing **")
-        if self.isClassAvailable(class_name):
-            new_instance = classes[class_name]()
-            new_instance.save()
-            print("{}".format(new_instance.id))
         else:
-            print("** class doesn't exist **")
+            if self.isClassAvailable(class_name):
+                new_instance = classes[class_name]()
+                new_instance.save()
+                print("{}".format(new_instance.id))
+            else:
+                print("** class doesn't exist **")
 
     def do_show(self, args=None):
         """ show: Prints the string representation of

@@ -38,7 +38,7 @@ class HBNBCommand(cmd.Cmd):
             Usage:
                 create <class_name>
         """
-        if class_name is None or class_name == '' or ' ':
+        if class_name is None or class_name == '':
             print("** class name missing **")
         else:
             if self.isClassAvailable(class_name):

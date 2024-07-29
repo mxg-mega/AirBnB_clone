@@ -11,8 +11,8 @@ class Place(BaseModel):
     """ The Place class describes
         the instances of places, data and operations associated
     """
-    city_is = City.id
-    user_id = User.id
+    city_is = ''
+    user_id = ''
     name = ''
     description = ''
     number_rooms = 0
@@ -21,4 +21,4 @@ class Place(BaseModel):
     price_by_night = 0.0
     latitude = 0.0
     longitude = 0.0
-    amenity_id = Amenity.id
+    amenity_id = ''

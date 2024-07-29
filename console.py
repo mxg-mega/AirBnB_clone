@@ -1,8 +1,9 @@
 #!/usr/bin/python3
+""" The HBNBCommand """
+
 from models.engine.file_storage import classes
 import models
 import cmd
-""" HBNBCommand Class """
 
 
 class HBNBCommand(cmd.Cmd):
@@ -29,4 +30,5 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
+    """ The Console """
     HBNBCommand().cmdloop()

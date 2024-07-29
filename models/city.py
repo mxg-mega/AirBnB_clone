@@ -7,3 +7,5 @@ class City(BaseModel):
     """ The City class describes
         the instances of cities, data and operations associated
     """
+    state_id = State.id
+    name = ''

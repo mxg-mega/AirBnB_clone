@@ -7,3 +7,4 @@ class Amenity(BaseModel):
     """ The Amenity class describes
         the instances of amenities, data and operations associated
     """
+    name = ''

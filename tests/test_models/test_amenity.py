@@ -6,8 +6,9 @@ from models.amenity import Amenity
 
 class TestAmenity(unittest.TestCase):
     """ Test for the Amenity Class """
+
     def setUp(self):
-       """Set up test methods."""
+        """Set up test methods."""
         self.amenity = Amenity()
 
     def test_attributes_exist(self):

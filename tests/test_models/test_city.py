@@ -7,7 +7,7 @@ from models.city import City
 class TestCity(unittest.TestCase):
     """ Tests for City class """
 
-   def setUp(self):
+    def setUp(self):
         """Set up test methods."""
         self.city = City()
 

@@ -3,6 +3,7 @@
 
 from models.engine.file_storage import classes
 import models
+import sys
 import cmd
 
 
@@ -208,4 +209,7 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()
+    if len(sys.argv) > 1:
+        HBNBCommand().onecmd(' '.join(sys.argv[1:]))
+    else:
+        HBNBCommand().cmdloop()

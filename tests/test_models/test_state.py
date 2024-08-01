@@ -7,7 +7,7 @@ from models.state import State
 class TestState(unittest.TestCase):
     """ Test for the BaseModel Class """
 
-   def setUp(self):
+    def setUp(self):
         """Set up test methods."""
         self.state = State()
 

@@ -28,6 +28,43 @@ class HBNBCommand(cmd.Cmd):
         """ A shortcut for exiting the Interpreter """
         return True
 
+    def precmd(self, line):
+        """ Custom commands with different syntax
+            Custom Command formats:
+                retrieve all instances of a class by using:
+                    <class name>.all().
+        """
+        try:
+            if '.' in line and '(' in line:
+                cls, method = line.split('.')
+                method, args = method.split('(')
+                args = args.replace(')', '')
+                if ',' in args and method == 'update':
+                    if len(args.split(',')) > 2:
+                        id_str, attr_n, attr_v = args.split(',')
+                    line = "{} {} {} {} {}".format(method, cls,
+                                             id_str, attr_n, attr_v)
+                else:
+                    line = "{} {} {}".format(method, cls, args)
+        except ValueError:
+            pass
+        return line
+
+    def do_count(self, class_name):
+        if class_name is not None and class_name != '':
+            class_name = class_name.split()[0]
+            models.storage.reload()
+            objs = models.storage.all()
+            count = 0
+            if self.isClassAvailable(class_name):
+                for i in objs.values():
+                    if i.to_dict()['__class__'] == class_name:
+                        count += 1
+                print(count)
+            else:
+                print("** class doesn't exist **")
+        
+
     def do_create(self, class_name=None):
         """ create command creates a new instance of a class
             specified as the argument of this command, save and print
@@ -91,11 +128,11 @@ class HBNBCommand(cmd.Cmd):
         if classTypes is None or classTypes == '':
             print([objs[key].__str__() for key in objs.keys()])
         else:
-            if not self.isClassAvailable(classTypes):
+            if not self.isClassAvailable(classTypes.split()[0]):
                 print("** class doesn't exist **")
             else:
                 print([objs[key].__str__() for key in objs.keys()
-                      if key.split(".")[0] == classTypes])
+                      if key.split(".")[0] == classTypes.split()[0]])
 
     def do_update(self, args):
         """ update: Updates an instance based on the class name

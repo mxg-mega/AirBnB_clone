@@ -805,10 +805,13 @@
         "created_at": "2024-07-31T06:01:45.058331",
         "updated_at": "2024-07-31T06:01:45.058441"
     },
-    "User.7fded011-4205-4537-b7ab-edb41628020d": {
-        "__class__": "User",
-        "id": "7fded011-4205-4537-b7ab-edb41628020d",
-        "created_at": "2024-07-31T06:05:52.027158",
-        "updated_at": "2024-07-31T06:05:52.027255"
+    "Place.b7ee7c71-7b45-4a09-aa4b-cb5259067d15": {
+        "__class__": "Place",
+        "id": "b7ee7c71-7b45-4a09-aa4b-cb5259067d15",
+        "created_at": "2024-08-01T16:44:55.739006",
+        "updated_at": "2024-08-01T16:44:55.739203",
+        "name": "bukar",
+        "first_name": "Aliyu",
+        "location": "bostal"
     }
 }

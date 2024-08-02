@@ -110,5 +110,62 @@ class TestConsoleCommands(TestConsole):
         self.assertEqual(models.storage.all()["BaseModel.{}".format(instance_id)].number, 89)
 
 
+class TestConsoleCustomCommands(unittest.TestCase):
+
+    def setUp(self):
+        """Create a new User instance for testing purposes"""
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("create User")
+            self.user_id = f.getvalue().strip()
+
+    def tearDown(self):
+        """Destroy the created User instance after testing"""
+        with patch('sys.stdout', new=StringIO()):
+            HBNBCommand().onecmd(f"destroy User {self.user_id}")
+
+    def test_all(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("User.all()")
+            output = f.getvalue().strip()
+            self.assertIn(f"User.{self.user_id}", output)
+
+    def test_count(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd("User.count()")
+            output = f.getvalue().strip()
+            self.assertEqual(output, '1')
+
+    def test_show(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.show({self.user_id})")
+            output = f.getvalue().strip()
+            self.assertIn(self.user_id, output)
+
+    def test_destroy(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.destroy({self.user_id})")
+            self.assertEqual(f.getvalue().strip(), '')
+
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"show User {self.user_id}")
+            output = f.getvalue().strip()
+            self.assertEqual(output, "** no instance found **")
+
+    def test_update_attribute(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f"User.update({self.user_id}, name, 'John')")
+            HBNBCommand().onecmd(f"show User {self.user_id}")
+            output = f.getvalue().strip()
+            self.assertIn('"name": "John"', output)
+
+    def test_update_dict(self):
+        with patch('sys.stdout', new=StringIO()) as f:
+            HBNBCommand().onecmd(f'User.update({self.user_id}, {{"name": "John", "age": 30}})')
+            HBNBCommand().onecmd(f"show User {self.user_id}")
+            output = f.getvalue().strip()
+            self.assertIn('"name": "John"', output)
+            self.assertIn('"age": 30', output)
+
+
 if __name__ == "__main__":
     unittest.main()
